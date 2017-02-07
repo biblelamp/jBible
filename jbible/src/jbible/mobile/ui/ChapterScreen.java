@@ -5,7 +5,6 @@
 package jbible.mobile.ui;
 
 import java.io.*;
-import java.lang.*; // добавил 18 сент€бр€
 import javax.microedition.lcdui.*;
 import jbible.data.*;
 import jbible.mobile.*;
@@ -272,8 +271,7 @@ public class ChapterScreen extends Canvas implements CommandListener, Runnable {
         if(lines.length-curr<textLineCount) textLineCount=lines.length-curr;
         g.setColor(Common.SETTINGS.getFgTextColor());
         for(int i=0;i<textLineCount;i++){
-            if(Common.ALIGN_RIGHT) g.drawString(lines[curr+i],getWidth()-Common.SETTINGS.getHorizontalSpace(),titleHeight+i*lineHeight,Graphics.TOP|Graphics.RIGHT);
-            else g.drawString(lines[curr+i],Common.SETTINGS.getHorizontalSpace(),titleHeight+i*lineHeight,Graphics.TOP|Graphics.LEFT);
+            g.drawString(lines[curr+i],Common.SETTINGS.getHorizontalSpace(),titleHeight+i*lineHeight,Graphics.TOP|Graphics.LEFT);
         }
         mainMenu.paint(g);
     }
@@ -463,8 +461,7 @@ public class ChapterScreen extends Canvas implements CommandListener, Runnable {
             if(verses!=null){
                 String text="";
                 for(int i=0;i<verses.length;i++){
-                    if (Common.RTL) text+=Common.strReverse(Integer.toString(i+1))+" "+verses[i]+" ";
-                    else text+=(i+1)+" "+verses[i]+" ";
+                    text+=(i+1)+" "+verses[i]+" ";
                 }
                 Caption caption=new Caption(text);
                 caption.resize(getWidth(),Common.SETTINGS.getFont());

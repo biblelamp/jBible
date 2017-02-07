@@ -43,7 +43,7 @@ public class Common {
      * гневных писем о неудовлетворительной реализации либо неудачной объектной модели.
      * Исходный код открыт, в нём действительно многое нужно переписать и добавить. Дерзайте :-)
      */
-    public static final String APP_DEVELOPERS_CONTACTINF="Костя Беляк (smbadm@yandex.ru), Сергей Ирюпин (biblelamp@gmail.com), Роман Ершков (roman_er@mail.ru), Володя Власов (webmaster@doposle.ru)";
+    public static final String APP_DEVELOPERS_CONTACTINF="Костантин Беляк (smbadm@yandex.ru), Сергей Ирюпин (biblelamp@gmail.com), Роман Ершков (roman_er@mail.ru), Владимир Власов (webmaster@doposle.ru)";
 
     /**
      * Заказчик программы
@@ -58,26 +58,7 @@ public class Common {
     /**
      * Поддержка программы
      */
-    public static final String APP_SUPPORT="+7-918-557-2926";
-    
-    /**
-     * Направление текста: false - слева направо, true - справа налево (арабский и фарси)
-     */
-    public static boolean RTL = false;
-    
-    /*
-     * Выключка текста: false - влево, true - вправо (для арабского и фарси)
-     */
-    public static boolean ALIGN_RIGHT = false;
-    
-     /**
-     * Переворачивает строку (для арабского и фарси)
-     * @param str Строка
-     */
-    public static String strReverse(String str){
-        StringBuffer sb = new StringBuffer(str);
-        return sb.reverse().toString();
-    }
+    public static final String APP_SUPPORT="8-918-557-2926";
     
     /**
      * Настройки приложения
@@ -121,7 +102,7 @@ public class Common {
         SETTINGS=Storage.readSettings();
         if(SETTINGS==null) SETTINGS=new Settings();
         try{
-            String localeListFile="/"+LOCALIZATION_DIR+"/"+LOCALES_LIST_FILE;
+            /*String localeListFile="/"+LOCALIZATION_DIR+"/"+LOCALES_LIST_FILE;
             InputStream is=localeListFile.getClass().getResourceAsStream(localeListFile);
             if(is==null) throw new IOException("locales list file not found: "+localeListFile);
             DataInputStream dis=new DataInputStream(is);
@@ -169,14 +150,13 @@ public class Common {
                 //if(localeNum==-1) localeNum=0;
                 reloadLocale();
             }else throw new IOException("No locales found");
-            /*
+             */
             localeNames=new String[1];
             localeNames[0]="Русский";
             localeFiles=new String[1];
             localeFiles[0]="ru_RU";
             localeNum=0;
             reloadLocale();
-            */
         }catch(Exception e){
             e.printStackTrace();
             System.err.println("WARNING: Localization error ("+e.getMessage()+")");
